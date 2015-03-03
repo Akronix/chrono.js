@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Cronómetro</title>
+	<meta charset="UTF-8">
+
+	<!-- Nice font for the numbers --> 
+	<link href='https://fonts.googleapis.com/css?family=Orbitron:900' rel='stylesheet' type='text/css'>
+
+	<!-- To my stylesheet -->
+	<link rel="stylesheet" type="text/css" href="estilo.css">
+	
+	
+	<!-- Importing zepto library from my google drive (absolute link) -->
+<script type="text/javascript" src="lib/zepto.min.js" > </script>
+
+	<!-- Importing touch.js library from my google drive (absolute link) -->
+	<!-- After zepto is imported since it needs zepto. -->
+	<script type="text/javascript" src="lib/touch.js" > </script>
+
+	<script type="text/javascript">
+
+	  $(function(){
+	    localStorage.c = (localStorage.c || "0.0");
+	    localStorage.logTxt = ( localStorage.logTxt || "");
+
+	    var t, cl = $("#crono"), log = $('#log');
+
+	    function incr()     { localStorage.c = +localStorage.c + 0.1; }
+
+	    function mostrar()  { cl.html((+localStorage.c).toFixed(1)); }
+
+	    function arrancar() 
+	    { 
+	    	t=setInterval(function(){incr();
+	    	mostrar()}, 100);
+		}
+
+	    function parar()    
+	    { 
+	    	clearInterval(t);  
+			t=undefined;
+			localStorage.logTxt += ('Parado a los '+cl.html()+' segundos.<br/>');
+			log.html(localStorage.logTxt);
+		 }
+
+	    function cambiar()  
+	    { 
+			if (!t) arrancar(); 
+			else parar(); 
+		}
+
+	    function inicializar() {
+	    	if (t===undefined){
+	    		localStorage.c="0.0";
+	    		localStorage.logTxt = "";
+    			mostrar();
+    			log.html(localStorage.logTxt);
+    		}
+    		else /* He añadido un mensaje de error para indicar que no se puede inicializar el crono mientras está corriendo */
+    		{
+    			$("#errorMessage").html("No se puede inicializar el cronómetro mientras está arrancado.");
+    			var removeError = setInterval(function(){$("#errorMessage").html("");clearInterval(removeError)}, 2000); //Intervalo para borrar el mensaje pasados dos segundos.
+    		}
+   		}
+
+	    $("#cambiar").on('click', cambiar);
+	    $("#inicializar").on('click', inicializar);
+
+	    // Notar que acciones táctiles están ligadas únicamente a la imagen del reloj y no a todo el body.
+	    $("#contenedorCrono").on('tap', cambiar);
+  	    $("#contenedorCrono").on('swipe', inicializar);
+	  	mostrar();
+	  	log.html(localStorage.logTxt);
+
+	  });
+	</script>
+</head>
+
+<body>
+
+	<h2>Cronómetro</h2>
+
+	<div id='contenedorCrono'>
+	<h3> <div id="crono"> 0.0 </span> </h3>
+	</div>
+
+	<div id='controlsContainer'>
+		<button type="button" id="cambiar"> arrancar/parar </button>
+		<button type="button" id="inicializar">  inicializar </button>
+		<div id="errorMessage"></div>
+		<div id="logContainer">
+			<b>Log:</b><br/>
+			<span id="log"></span>
+		</div>
+	</div>
+
+</body>
+</html>
