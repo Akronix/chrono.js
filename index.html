@@ -8,14 +8,14 @@
 	<link href='https://fonts.googleapis.com/css?family=Orbitron:900' rel='stylesheet' type='text/css'>
 
 	<!-- To my stylesheet -->
-	<link rel="stylesheet" type="text/css" href="estilo.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
 	
 
-	<!-- Importing zepto library from my google drive (absolute link) -->
+	<!-- Importing zepto library -->
 <script type="text/javascript" src="lib/zepto.min.js" > </script>
 
-	<!-- Importing touch.js library from my google drive (absolute link) -->
-	<!-- After zepto is imported since it needs zepto. -->
+	<!-- Importing touch.js library -->
+	<!-- Once zepto is imported since it needs zepto. -->
 	<script type="text/javascript" src="lib/touch.js" > </script>
 
 	<script type="text/javascript">
@@ -28,51 +28,50 @@
 
 	    function incr()     { localStorage.c = +localStorage.c + 0.1; }
 
-	    function mostrar()  { cl.html((+localStorage.c).toFixed(1)); }
+	    function show()  { cl.html((+localStorage.c).toFixed(1)); }
 
-	    function arrancar() 
+	    function start() 
 	    { 
 	    	t=setInterval(function(){incr();
-	    	mostrar()}, 100);
+	    	show()}, 100);
 		}
 
-	    function parar()    
+	    function stop()    
 	    { 
-	    	clearInterval(t);  
+	    clearInterval(t);  
 			t=undefined;
 			localStorage.logTxt += ('Stopped at  '+cl.html()+' seconds.<br/>');
 			log.html(localStorage.logTxt);
 		 }
 
-	    function cambiar()  
+	    function toggle()  
 	    { 
-			if (!t) arrancar(); 
-			else parar(); 
+			if (!t) start(); 
+			else stop(); 
 		}
 
-	    function inicializar() {
+	    function initialize() {
 	    	if (t===undefined){
 	    		localStorage.c="0.0";
 	    		localStorage.logTxt = "";
-    			mostrar();
+    			show();
     			log.html(localStorage.logTxt);
     		}
-    		else /* He añadido un mensaje de error para indicar que no se puede inicializar el crono mientras está corriendo */
+    		else /* I have added an error message to indicate chronometer can't be reset meanwhile it is running. */
     		{
-    			$("#errorMessage").html("Chronometer is not able to be reset meanwhile it is runningNo se puede inicializar el cronómetro mientras está arrancado.");
-    			var removeError = setInterval(function(){$("#errorMessage").html("");clearInterval(removeError)}, 2000); //Intervalo para borrar el mensaje pasados dos segundos.
+    			$("#errorMessage").html("Chronometer is not able to be reset while it is running.");
+    			var removeError = setInterval(function(){$("#errorMessage").html("");clearInterval(removeError)}, 2000); //Error message is deleted after 2 seconds.
     		}
    		}
 
-	    $("#cambiar").on('click', cambiar);
-	    $("#inicializar").on('click', inicializar);
-
-	    // Notar que acciones táctiles están ligadas únicamente a la imagen del reloj y no a todo el body.
-	    $("#contenedorCrono").on('tap', cambiar);
-  	    $("#contenedorCrono").on('swipe', inicializar);
-	  	mostrar();
+	    $("#toggle").on('click', toggle);
+	    $("#initialize").on('click', initialize);
+		
+	    // Notice that touching actions are related to the clock picture and not to the whole body.
+	    $("#cronoContainer").on('tap', toggle);
+  	    $("#cronoContainer").on('swipe', initialize);
+	  	show();
 	  	log.html(localStorage.logTxt);
-
 	  });
 	</script>
 </head>
@@ -81,13 +80,13 @@
 
 	<h2>Stopwatch</h2>
 
-	<div id='contenedorCrono'>
+	<div id='cronoContainer'>
 	<h3> <div id="crono"> 0.0 </span> </h3>
 	</div>
 
 	<div id='controlsContainer'>
-		<button type="button" id="cambiar"> Start / Stop </button>
-		<button type="button" id="inicializar">  Reset </button>
+		<button type="button" id="toggle"> Start / Stop </button>
+		<button type="button" id="initialize">  Reset </button>
 		<div id="errorMessage"></div>
 		<div id="logContainer">
 			<b>Log:</b><br/>

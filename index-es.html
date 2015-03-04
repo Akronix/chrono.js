@@ -8,14 +8,14 @@
 	<link href='https://fonts.googleapis.com/css?family=Orbitron:900' rel='stylesheet' type='text/css'>
 
 	<!-- To my stylesheet -->
-	<link rel="stylesheet" type="text/css" href="estilo.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
 	
 	
-	<!-- Importing zepto library from my google drive (absolute link) -->
+	<!-- Importing zepto library -->
 <script type="text/javascript" src="lib/zepto.min.js" > </script>
 
-	<!-- Importing touch.js library from my google drive (absolute link) -->
-	<!-- After zepto is imported since it needs zepto. -->
+	<!-- Importing touch.js library -->
+	<!-- Once zepto is imported since it needs zepto. -->
 	<script type="text/javascript" src="lib/touch.js" > </script>
 
 	<script type="text/javascript">
@@ -68,8 +68,8 @@
 	    $("#inicializar").on('click', inicializar);
 
 	    // Notar que acciones táctiles están ligadas únicamente a la imagen del reloj y no a todo el body.
-	    $("#contenedorCrono").on('tap', cambiar);
-  	    $("#contenedorCrono").on('swipe', inicializar);
+	    $("#cronoContainer").on('tap', cambiar);
+  	    $("#cronoContainer").on('swipe', inicializar);
 	  	mostrar();
 	  	log.html(localStorage.logTxt);
 
@@ -81,7 +81,7 @@
 
 	<h2>Cronómetro</h2>
 
-	<div id='contenedorCrono'>
+	<div id='cronoContainer'>
 	<h3> <div id="crono"> 0.0 </span> </h3>
 	</div>
 
