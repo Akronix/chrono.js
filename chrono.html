@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Stopwatch</title>
+	<meta charset="UTF-8">
+
+	<!-- Nice font for the numbers --> 
+	<link href='https://fonts.googleapis.com/css?family=Orbitron:900' rel='stylesheet' type='text/css'>
+
+	<!-- To my stylesheet -->
+	<link rel="stylesheet" type="text/css" href="style.css">
+	
+
+	<!-- Importing zepto library -->
+<script type="text/javascript" src="lib/zepto.min.js" > </script>
+
+	<!-- Importing touch.js library -->
+	<!-- Once zepto is imported since it needs zepto. -->
+	<script type="text/javascript" src="lib/touch.js" > </script>
+
+	<script type="text/javascript">
+
+	  $(function(){
+	    localStorage.c = (localStorage.c || "0.0");
+	    localStorage.logTxt = ( localStorage.logTxt || "");
+
+	    var t, cl = $("#crono"), log = $('#log');
+
+	    function incr()     { localStorage.c = +localStorage.c + 0.1; }
+
+	    function show()  { cl.html((+localStorage.c).toFixed(1)); }
+
+	    function start() 
+	    { 
+	    	t=setInterval(function(){incr();
+	    	show()}, 100);
+		}
+
+	    function stop()    
+	    { 
+	    clearInterval(t);  
+			t=undefined;
+			localStorage.logTxt += ('Stopped at  '+cl.html()+' seconds.<br/>');
+			log.html(localStorage.logTxt);
+		 }
+
+	    function toggle()  
+	    { 
+			if (!t) start(); 
+			else stop(); 
+		}
+
+	    function initialize() {
+	    	if (t===undefined){
+	    		localStorage.c="0.0";
+	    		localStorage.logTxt = "";
+    			show();
+    			log.html(localStorage.logTxt);
+    		}
+    		else /* I have added an error message to indicate chronometer can't be reset meanwhile it is running. */
+    		{
+    			$("#errorMessage").html("Chronometer is not able to be reset while it is running.");
+    			var removeError = setInterval(function(){$("#errorMessage").html("");clearInterval(removeError)}, 2000); //Error message is deleted after 2 seconds.
+    		}
+   		}
+
+	    $("#toggle").on('click', toggle);
+	    $("#initialize").on('click', initialize);
+		
+	    // Notice that touching actions are related to the clock picture and not to the whole body.
+	    $("#cronoContainer").on('tap', toggle);
+  	    $("#cronoContainer").on('swipe', initialize);
+	  	show();
+	  	log.html(localStorage.logTxt);
+	  });
+	</script>
+</head>
+
+<body>
+
+	<h2>Stopwatch</h2>
+
+	<div id='cronoContainer'>
+	<h3> <div id="crono"> 0.0 </span> </h3>
+	</div>
+
+	<div id='controlsContainer'>
+		<button type="button" id="toggle"> Start / Stop </button>
+		<button type="button" id="initialize">  Reset </button>
+		<div id="errorMessage"></div>
+		<div id="logContainer">
+			<b>Log:</b><br/>
+			<span id="log"></span>
+		</div>
+	</div>
+
+</body>
+</html>
