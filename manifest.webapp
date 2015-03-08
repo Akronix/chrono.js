@@ -3,7 +3,6 @@
   "name": "chrono.js",
   "description": "Simple stopwatch in javascript that stores the stop times locally",
   "package_path": "chrono.js.zip",
-  "launch_path": "/chron.html",
 
   "developer": {
     "name": "Akronix",
@@ -11,12 +10,5 @@
   }
 
   "default_locale": "en",
-
-  "locales": {
-  "es": {
-    "description": "Simple cronómetro en javascript que guarda las paradas localmente",
-  "launch_path": "/chron-es.html",
-  },
-}
 
 }
