@@ -1,14 +1,11 @@
 {
-  "version": "0.0.1",
-  "name": "chrono.js",
-  "description": "Simple stopwatch in javascript that stores the stop times locally",
-  "package_path": "chrono.js.zip",
+  "version": "0.1.1",
+  "name": "Cronómetro",
+  "description": "Cronómetro que guarda las paradas localmente. (packaged)",
+  "package_path": "https://www.googledrive.com/host/0By_YtJ_s6quxeWphR3RaMEVIalk/cron.zip",
 
   "developer": {
     "name": "Akronix",
-    "url": "www.akronix.es"
+    "url": "http://www.hackathon.io/5297"
   }
-
-  "default_locale": "en",
-
 }

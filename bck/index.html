@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Instalador del Cronometro</title>
+  <title>WebApp installer</title>
   <meta charset="UTF-8">
 </head>
 
 <body>
-    <p>Página de Auto-Instalación del Cronómetro (packaged)</p>
+    <p>Website for installing the stopwatch locally with the webapp packaged</p>
 
     <script>
       (function() {
           var manifestUrl = location.href.replace("index.html","") +'manifest.webapp';
 
           if (! navigator.mozApps.installPackage) {
-            alert("ERROR: Esta aplicación no es compatible con tu dispositivo.");
+            alert("ERROR: This app is not compatible with your device.");
             return;
           } 
 
           var req = navigator.mozApps.installPackage(manifestUrl);
           req.onsuccess = function() {
-            alert("Instalacion completada."+this.result.origin);
+            alert("Chrono.js successfully installed."+this.result.origin);
           };
           req.onerror = function() {
-            alert("Error de instalación: "+this.error.name);
+            alert("Error installing: "+this.error.name);
           };
       }
       )();
