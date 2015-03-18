@@ -1,0 +1,64 @@
+@charset "UTF-8";
+/* CSS sytle document */
+
+	body {
+		max-width: 800px;
+		min-width: 600px;
+	}
+
+	h2 {
+		margin-left: 15px;
+	}
+	
+	#cronoContainer {
+		width: 363px;
+		height: 532px;
+		background-image: url('img/chrono.jpg');
+		background-size: 363px 532px;
+		float: left;
+	}
+	
+	#crono {
+		margin-top: 300px;
+		width: 363px;
+		height: 532px;
+		text-align: center;
+		font-size: 5em;
+		font-family: 'Orbitron', monospace;
+	}
+	
+	#controlsContainer {
+		margin-top: 140px;
+	}
+
+	button {
+		margin-bottom: 20px;
+		margin-left: 60px;
+		padding: 7px;
+		float: left;
+	}
+
+	#logContainer {
+		margin-left: 40px;
+		float: left;
+		border: solid 1px black;
+		min-height: 150px;
+		width: 35%;
+	}
+
+	#buttonTxt {
+		font-family: monospace;
+	}
+
+	#errorMessage {
+		font-family: monospace;
+		font-style: bold;
+		font-size: 1.2em;
+		margin-left: 20%;
+		color: white;
+		background-color: red;
+		font-style: italic;
+		position: fixed;
+		z-index:2;
+		width: 20%;
+	}
