@@ -2,7 +2,7 @@
   "version": "0.1.1",
   "name": "chrono.js",
   "description": "Simple stopwatch in javascript that stores the stop times locally",
-  "package_path": "/chrono.js.zip",
+  "package_path": "http://akronix.github.io/chrono.js/install/chrono.js.zip",
 
   "developer": {
     "name": "Akronix",
