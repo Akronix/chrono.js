@@ -31,6 +31,9 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ## No code
 Licensing applying the non-code contents.
+
 ### img/
-All the images located in the img/ directory (currently the chrono image only) are creative commons licensed licensed under [Creative Commons 4.0 BY-SA](http://creativecommons.org/licenses/by-sa/4.0/). You can use the .xcf file to edit the the chrono image in GIMP.  
+The chrono image located in the img/ directory (currently the chrono image only) is creative commons licensed licensed under [Creative Commons 4.0 BY-SA](http://creativecommons.org/licenses/by-sa/4.0/). You can use the .xcf file to edit the the chrono image in GIMP.  
 For attributions to this work, please mention me as: "Abel 'Akronix' Serrano Juste" or simply "Akronix" and include the link where you get it from: <https://github.com/Akronix/chrono.js>
+
+Other auxiliar icons used in the github.io web are common public licensed (CC0). Thanks to [OpenClips in pixabay](http://pixabay.com/en/users/OpenClips-30363/) for the icons of the country flags.
