@@ -62,3 +62,18 @@
 		z-index:2;
 		width: 20%;
 	}
+	
+	#extraButtons {
+    position: absolute;
+    left: 400px;
+    top: 20px;
+		z-index:3;
+	}
+	
+	#download {
+
+	}
+	
+	#toSpanish {
+
+	}

@@ -1,0 +1,37 @@
+<!--
+   index.html
+   
+   Descp: This is a very simple stopwatch programmed in javascript.
+   
+   Created on: 19-mar-2015
+   
+   Copyright 2015 Abel 'Akronix' Serrano Juste <akronix@gmail.com>
+-->
+
+<!DOCTYPE html PUBLIC >
+<html lang="en">
+
+<head>
+	<title>chrono.js</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	
+	<script type="text/javascript">
+		
+		window.document.write("Loading stopwatch according to your language browser preferences...<br/>" +
+		"if it doesn't redirect you automatically <a href=\"chrono.html\">click here</a>");
+		
+		var userLang = navigator.language || navigator.userLanguage; 
+		if (userLang.search(/es(-?\w?\w?|-\w\w)/) >=0)
+			window.location.href = "chrono-es.html";
+		else
+			window.location.href = "chrono.html";
+
+	</script>
+	
+</head>
+
+<body>
+	
+</body>
+
+</html>
