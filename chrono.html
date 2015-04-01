@@ -24,7 +24,7 @@
 	    localStorage.c = (localStorage.c || "0.0");
 	    localStorage.logTxt = ( localStorage.logTxt || "");
 
-	    var t, cl = $("#crono"), log = $('#log');
+	    var t, cl = $("#chrono"), log = $('#log');
 
 	    function incr()     { localStorage.c = +localStorage.c + 0.1; }
 
@@ -68,8 +68,8 @@
 	    $("#initialize").on('click', initialize);
 		
 	    // Notice that touching actions are related to the clock picture and not to the whole body.
-	    $("#cronoContainer").on('tap', toggle);
-  	    $("#cronoContainer").on('swipe', initialize);
+	    $("#chronoContainer").on('tap', toggle);
+  	    $("#chronoContainer").on('swipe', initialize);
 	  	show();
 	  	log.html(localStorage.logTxt);
 	  });
@@ -80,8 +80,8 @@
 
 	<h2>Stopwatch</h2>
 
-	<div id='cronoContainer'>
-	<h3> <div id="crono"> 0.0 </div> </h3>
+	<div id='chronoContainer'>
+	<h3> <div id="chrono"> 0.0 </div> </h3>
 	</div>
 
 	<div id='controlsContainer'>

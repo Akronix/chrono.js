@@ -10,7 +10,7 @@
 		margin-left: 15px;
 	}
 	
-	#cronoContainer {
+	#chronoContainer {
 		width: 363px;
 		height: 532px;
 		background-image: url('img/chrono.jpg');
@@ -18,8 +18,8 @@
 		float: left;
 	}
 	
-	#crono {
-		margin-top: 300px;
+	#chrono {
+		margin-top: 280px;
 		width: 363px;
 		height: 532px;
 		text-align: center;
@@ -42,7 +42,7 @@
 		margin-left: 40px;
 		float: left;
 		border: solid 1px black;
-		min-height: 150px;
+		min-height: 140px;
 		width: 35%;
 	}
 

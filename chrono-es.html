@@ -24,7 +24,7 @@
 	    localStorage.c = (localStorage.c || "0.0");
 	    localStorage.logTxt = ( localStorage.logTxt || "");
 
-	    var t, cl = $("#crono"), log = $('#log');
+	    var t, cl = $("#chrono"), log = $('#log');
 
 	    function incr()     { localStorage.c = +localStorage.c + 0.1; }
 
@@ -57,7 +57,7 @@
     			mostrar();
     			log.html(localStorage.logTxt);
     		}
-    		else /* He añadido un mensaje de error para indicar que no se puede inicializar el crono mientras está corriendo */
+    		else /* He añadido un mensaje de error para indicar que no se puede inicializar el chrono mientras está corriendo */
     		{
     			$("#errorMessage").html("No se puede inicializar el cronómetro mientras está arrancado.");
     			var removeError = setInterval(function(){$("#errorMessage").html("");clearInterval(removeError)}, 2000); //Intervalo para borrar el mensaje pasados dos segundos.
@@ -68,8 +68,8 @@
 	    $("#inicializar").on('click', inicializar);
 
 	    // Notar que acciones táctiles están ligadas únicamente a la imagen del reloj y no a todo el body.
-	    $("#cronoContainer").on('tap', cambiar);
-  	    $("#cronoContainer").on('swipe', inicializar);
+	    $("#chronoContainer").on('tap', cambiar);
+  	    $("#chronoContainer").on('swipe', inicializar);
 	  	mostrar();
 	  	log.html(localStorage.logTxt);
 
@@ -81,8 +81,8 @@
 
 	<h2>Cronómetro</h2>
 
-	<div id='cronoContainer'>
-	<h3> <div id="crono"> 0.0 </div> </h3>
+	<div id='chronoContainer'>
+	<h3> <div id="chrono"> 0.0 </div> </h3>
 	</div>
 
 	<div id='controlsContainer'>
